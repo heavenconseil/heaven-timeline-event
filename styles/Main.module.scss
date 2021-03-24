@@ -1,0 +1,120 @@
+.container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fef5e7a9;
+}
+.main {
+  flex: 1 1;
+  display: flex;
+  width: 100vw;
+  position: relative;
+
+  .containerBox {
+    width: 50%;
+    margin: 1% .5%;
+    padding: 1% 2%;
+    max-height: 84vh;
+    overflow: overlay;
+    position: absolute;
+    top: 0;
+    left: 7px;
+    z-index: 0;
+  }
+  
+  .containerBoxAlt {
+    width: 50%;
+    margin: 1% 0.5% 1% 49%;
+    padding: 1% 3%;
+    background-color: #fef8ef;
+    max-height: 84vh;
+    z-index: 0;
+  }
+}
+
+.marginAltBottom {
+  margin-bottom: 15px;
+}
+
+.moisAlt{
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.paperAlt{
+  padding: 6px 16px;
+}
+
+
+.containerCard{
+  margin: 0 auto;
+  width: 345px;
+}
+
+
+.header {
+  width: 100%;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.header h1{
+  font-size: 25px;
+}
+
+
+
+.footer {
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.footer p {
+  margin-right: 5px;
+}
+
+.footer a {
+  font-weight: bold;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer img {
+  margin-left: 0.5rem;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
