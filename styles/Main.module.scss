@@ -1,110 +1,171 @@
-.container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #fef5e7a9;
-}
-.main {
-  flex: 1 1;
-  display: flex;
-  width: 100vw;
+// INDEX COMPOSANT START
+    // Header START
+
+    .header {
+      width: 100%;
+      border-bottom: 1px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+    }
+
+    .header h1{
+      font-size: 25px;
+    }
+
+    // Header END
+
+
+    // Footer START
+    .footer {
+      width: 100%;
+      height: 50px;
+      border-top: 1px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+    }
+
+    .footer p {
+      margin-right: 5px;
+    }
+
+    .footer a {
+      font-weight: bold;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer img {
+      margin-left: 0.5rem;
+    }
+
+    .footer a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    // Footer END
+
+
+    .container {
+      min-height: 100vh;
+      padding: 0 0.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #fef5e7a9;
+    }
+    .main {
+      flex: 1 1;
+      display: flex;
+      width: 100vw;
+      height: 85vh;
+      position: relative;
+
+      .containerBox {
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+      }
+      
+      .containerBoxAlt {
+        width: 50%;
+        background-color: #fef8ef;
+        height: 100%;
+      }
+    }
+
+    .marginAltBottom {
+      margin-bottom: 15px;
+    }
+
+// INDEX COMPOSANT END
+
+
+
+// Timeline Composant START
+
+.ulAlt {
   position: relative;
-
-  .containerBox {
-    width: 50%;
-    margin: 1% .5%;
-    padding: 1% 2%;
-    max-height: 84vh;
-    overflow: overlay;
-    position: absolute;
-    top: 0;
-    left: 7px;
-    z-index: 0;
-  }
-  
-  .containerBoxAlt {
-    width: 50%;
-    margin: 1% 0.5% 1% 49%;
-    padding: 1% 3%;
-    background-color: #fef8ef;
-    max-height: 84vh;
-    z-index: 0;
-  }
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-.marginAltBottom {
-  margin-bottom: 15px;
+.liAlt {
+  height: auto;
+  min-height: inherit!important;
 }
 
-.moisAlt{
+.monthAlt{
   background-color: black;
   color: white;
-  font-weight: bold;
-  padding: 5px;
+  font-size: 1.5vw;
   text-align: center;
   text-transform: uppercase;
 }
 
 .paperAlt{
-  padding: 6px 16px;
+  padding: 6px 16px;  
+  margin-bottom: 5px;
+
+    h1{
+      font-size: 1.5vh;
+      line-height: 1.5;
+      cursor: pointer;
+    }
 }
 
-
-.containerCard{
-  margin: 0 auto;
-  width: 345px;
-}
+// Timeline Composant END
 
 
-.header {
-  width: 100%;
-  border-bottom: 1px solid black;
+// InfoItem START
+
+.boxContainerCard{
+  height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
+  padding-top: 2%;
+  flex-direction: column;
+
+    .filtreImput {
+      width: 300px;
+
+      .textFieldImput {
+        width: 49vw;
+        background-color: white!important;
+
+        fieldset {
+          width: 20vw;
+          border: inherit;
+
+        }
+      }
+    }
+
+    .containerCard{
+      margin: auto;
+      width: 345px;
+
+      .textCard {
+        height: 30vh;
+        overflow: auto;
+        
+      }
+    }
+
 }
 
-.header h1{
-  font-size: 25px;
-}
+// InfoItem END
 
 
-
-.footer {
-  width: 100%;
-  height: 50px;
-  border-top: 1px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-}
-
-.footer p {
-  margin-right: 5px;
-}
-
-.footer a {
-  font-weight: bold;
-}
-
-.footer a:hover {
-  text-decoration: underline;
-}
-
-.footer img {
-  margin-left: 0.5rem;
-}
-
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+// A VOIR START
 
 .title a {
   color: #0070f3;
@@ -118,3 +179,4 @@
     flex-direction: column;
   }
 }
+// A VOIR END

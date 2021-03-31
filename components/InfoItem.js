@@ -44,19 +44,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function InfoItem({currentItem}) {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+  const date = currentItem[7] + ' - ' + currentItem[8];
 
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   return (
     <div className={styles.containerCard}>
         <Card className={classes.root}>
             <CardHeader
                 title={currentItem[1]}
-                subheader=""
+                subheader={date}
             />
             <CardMedia
                 className={classes.media}
@@ -64,50 +60,10 @@ export default function InfoItem({currentItem}) {
                 title="Paella dish"
             />
             <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p">{currentItem[4]}</Typography>
+                <Typography variant="body2" className={styles.textCard} color="textSecondary" component="p" dangerouslySetInnerHTML={{__html: currentItem[4]}}></Typography>
             </CardContent>
-            {/* <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                <FavoriteIcon />
-                </IconButton>
-                <IconButton aria-label="share">
-                <ShareIcon />
-                </IconButton>
-                <IconButton
-                className={clsx(classes.expand, {
-                    [classes.expandOpen]: expanded,
-                })}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
-                aria-label="show more"
-                >
-                <ExpandMoreIcon />
-                </IconButton>
-            </CardActions> */}
         </Card>
     </div>
   );
 }
 
-
-// function InfoItem() {
-
-
-
-//   return(
-//     <div>
-//         <div>
-//           <h1>{currentItem[1]}</h1>
-//           <div>          
-//             <time></time>
-//             <time></time>
-//           </div> 
-//         </div>
-//         <p></p>
-//         <p></p>
-   
-//     </div>
-//   )
-// };
-
-// export default InfoItem;
