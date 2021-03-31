@@ -1,5 +1,4 @@
 import styles from '../styles/Main.module.scss';
-import TimelineData from './data.json';
 
 // Luxon pour les dates équivalent a "momentjs"
 import { DateTime, Settings } from "luxon";
@@ -16,17 +15,47 @@ import TimelineOppositeContent from '@material-ui/lab/TimelineOppositeContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import { Divider, Hidden } from '@material-ui/core';
+import { Divider, Hidden, TableSortLabel } from '@material-ui/core';
+
+import Holidays from 'date-holidays';
 
 
-export default function CustomizedTimeline({setCurrentItem}) {
 
+
+export default function CustomizedTimeline({setCurrentItem, TimelineData, tabTagCheck}) {
+// lib date
   Settings.defaultLocale = "fr";
   const dateNowObj = DateTime.now().setLocale("fr")
-
   const [startDate, setStartDate] = useState(dateNowObj)
 
+  // lib holidays
+  // var hd = new Holidays('FR')
 
+  // console.log(hd);
+  const hd = new Holidays()
+  hd.init("FR")
+  let allHolidays = hd.getHolidays(2021)
+  console.log(allHolidays);
+
+
+  const testTag = (tagItem) => {
+    let check = 0
+    let checkEmpty = tabTagCheck.length
+    if(tabTagCheck && checkEmpty != 0){
+      tabTagCheck.map((data) => {
+        let include = tagItem.includes(data)  
+        if (include == true) {
+          check++
+        }
+      })
+    } 
+    if (check > 0 || checkEmpty == 0) {
+      return (true)
+    } 
+    else{
+      return(false)
+    }
+  }
 
   // création d un tableau qui réuni les données a envoyer au composant parent pour l affichage des infos de l'item
   const handleClick = (itemId, itemTitle, itemResume, itemTag, itemText, itemLink, itemImage, itemDateStart, itemDateEnd) => {
@@ -73,16 +102,17 @@ export default function CustomizedTimeline({setCurrentItem}) {
                       <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent>
-                      { dTimelineData && dTimelineData.map((dataJson, idx1) => { 
-                        
-                        // Ici tag
-                        return( 
-                          <Paper data={dataJson} key={idx1} elevation={3} className={styles.paperAlt}  onClick={() => handleClick(dataJson.id, dataJson.title, dataJson.resume, dataJson.tag, dataJson.text, dataJson.link, dataJson.image, dataJson.start_date, dataJson.end_date)}>
-                            <Typography variant="h6" component="h1">
-                              {dataJson.title}
-                            </Typography>
-                          </Paper> 
-                        )
+                      { dTimelineData && dTimelineData.map((dataJson, idx1) => {                       
+                          let check = testTag(dataJson.tag)
+                          if(check == true ){
+                            return( 
+                              <Paper data={dataJson} key={idx1} elevation={3} className={styles.paperAlt}  onClick={() => handleClick(dataJson.id, dataJson.title, dataJson.resume, dataJson.tag, dataJson.text, dataJson.link, dataJson.image, dataJson.start_date, dataJson.end_date)}>
+                                <Typography variant="h6" component="h1">
+                                  {dataJson.title}
+                                </Typography>
+                              </Paper> 
+                            )
+                          }
                       }) }
                     </TimelineContent>
                  </TimelineItem>
